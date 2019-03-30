@@ -1,4 +1,3 @@
 # Movie-Renting-Backend
-```
-npm install
-```
+
+Use `npm install` to install all the required dependencies. 

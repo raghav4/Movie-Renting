@@ -24,7 +24,7 @@ router.get('/:id',async (req, res) => {
     }
     res.send(genre);
 });
-// POST : TODO INPUT Validation from the USER!! 
+//// POST : TODO INPUT Validation from the USER!! 
 router.post('/', async(req, res) => {
 
     const { error } = validateGenre(req.body);
