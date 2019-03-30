@@ -1,17 +1,7 @@
-const Joi = require('joi');
 const express = require('express');
-const app = express();
 const genres = require('./router/genres');
 const mongoose = require('mongoose');
-
-const Genre = new mongoose.model('Genre', new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
-    }
-}));
+const app = express();
 
 mongoose.connect('mongodb://localhost/MovieRenting')
     .then(() => console.log('Connected to MongoDB...'))
