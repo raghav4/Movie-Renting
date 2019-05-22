@@ -6,22 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/raghav4/Movie-Renting.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/raghav4/Movie-Renting/issues"
-  },
-  "homepage": "https://github.com/raghav4/Movie-Renting#readme",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.0",
     "joi": "^14.3.1",
-    "mongoose": "^5.4.20",
-    "nodemon": "^1.18.10",
-    "swagger-editor": "^3.6.27"
+    "nodemon": "^1.19.0",
+    "underscore": "^1.9.1"
   }
 }
