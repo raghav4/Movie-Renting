@@ -1,16 +1,23 @@
-const Joi = require('joi');
+const mongoose = require('mongoose');
 const express = require('express');
-const app = express(); 
+const app = express();
 const genres = require('./routes/genres');
+const customers = require('./routes/customers');
 const home = require('./routes/home');
 
-app.use(express.json());  
+mongoose.connect('mongodb://localhost/movie-renting')
+    .then(()=>console.log('Connected to Mongodb...'))
+    .catch(err=>console.error('Could not connect to Mongodb...'))
+
+// Templating Engines
+app.set('view engine','pug');
+app.set('views','./views');
+
+// Routes
+app.use(express.json());
 app.use('/',home);
-app.set('view engine', 'pug');
 app.use('/api/genres',genres);
+app.use('/api/customers',customers);
 
-const port = process.env.PORT || 3000;
-app.listen(port,()=>console.log(`Listening on port ${port}...`)); 
-
-// whenever the route /api/genres is called, then the express application will call on to the genres module.
-// same in the other case like home.
+const PORT = process.env.port || 3000;
+app.listen((3000),()=>console.log(`Listening on Port ${PORT}...`));
