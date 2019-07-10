@@ -1,26 +1,26 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
-const {genreSchema} = require('./genre');
+const { genreSchema } = require('./genre');
 
 const Movie = mongoose.model('Movie', new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true,
         trim: true,
         minlength: 3,
         maxlength: 50
     },
-    genre:{
+    genre: {
         type: genreSchema,
         required: true
     },
-    numberInStock:{
+    numberInStock: {
         type: Number,
         required: true,
         min: 0,
         max: 255
     },
-    dailyRentalRate:{
+    dailyRentalRate: {
         type: Number,
         required: true,
         min: 0,
@@ -28,14 +28,14 @@ const Movie = mongoose.model('Movie', new mongoose.Schema({
     }
 }));
 
-function validateMovie(movie){
+function validateMovie(movie) {
     const schema = {
         title: Joi.string().trim().min(3).max(50).required(),
         genreId: Joi.string().required(),
-        numberInStock: Joi.number.min(0).max(255).required(),
-        dailyRentalRate: Joi.number.min(0).max(255).required()
+        numberInStock: Joi.number().min(0).max(255).required(),
+        dailyRentalRate: Joi.number().min(0).max(255).required()
     };
-    return Joi.validate(movie,schema);
+    return Joi.validate(movie, schema);
     // What the Client Send to Us.
 }
 
