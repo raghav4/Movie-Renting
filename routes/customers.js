@@ -23,7 +23,7 @@ router.post('/',async(req,res)=>{
         phone:req.body.phone,
         isGold:req.body.isGold
     });
-    customer = await customer.save();
+    await customer.save();
 
     res.send(customer);
 });
